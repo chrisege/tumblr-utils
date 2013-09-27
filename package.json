@@ -1,0 +1,17 @@
+{
+  "name": "tumblr-utils",
+  "description": "tumblr utils",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.x",
+    "oauth": "latest"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "load-grunt-tasks": "~0.1.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-less": "~0.7.0",
+    "grunt-notify": "~0.2.13"
+  }
+}

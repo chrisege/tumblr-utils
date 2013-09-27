@@ -1,0 +1,10 @@
+{
+  "name": "tumblr-utils",
+  "version": "0.0.1",
+  "dependencies": {
+    "backbone": "latest",
+    "lodash": "latest",
+    "jquery": "latest",
+    "bootstrap": "latest"
+  }
+}
