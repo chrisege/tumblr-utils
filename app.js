@@ -7,8 +7,13 @@ var app = express();
 
 var consumer = function() {
 	return new oauth.OAuth(
-			"https://tumblr.com/oauth/request_token", "http://www.tumblr.com/oauth/access_token", 
-			tumblr.key, tumblr.secret, "1.0A", "http://127.0.0.1:3000/sessions/callback/", "HMAC-SHA1"
+			"https://tumblr.com/oauth/request_token", 
+			"http://www.tumblr.com/oauth/access_token", 
+			tumblr.key, 
+			tumblr.secret, 
+			"1.0A", 
+			"http://127.0.0.1:3000/sessions/callback/", 
+			"HMAC-SHA1"
 		);   
 };
 
@@ -35,19 +40,23 @@ app.get('/sessions/connect', function(req, res){
 		if (error) {
 			res.send("Error getting OAuth request token : " + sys.inspect(error), 500);
 		} else {  
-			req.session.oauthRequestToken = oauthToken;
-			req.session.oauthRequestTokenSecret = oauthTokenSecret;
-			res.redirect("http://www.tumblr.com/oauth/authorize?oauth_token="+req.session.oauthRequestToken);      
+			req.session.oauth = {
+        token: oauthToken,
+        token_secret: oauthTokenSecret
+      };
+      console.log(req.session.oauth);
+			res.redirect("http://www.tumblr.com/oauth/authorize?oauth_token="+oauthToken);      
 		}
 	});
 });
 
 app.get('/sessions/callback', function(req, res){
-	sys.puts(">>"+req.session.oauthRequestToken);
+	sys.puts(">>"+req.session.oauth);
 	sys.puts(">>"+req.session.oauthRequestTokenSecret);
 	sys.puts(">>"+req.query.oauth_verifier);
-	consumer().getOAuthAccessToken(req.session.oauthRequestToken, req.session.oauthRequestTokenSecret, req.query.oauth_verifier, function(error, oauthAccessToken, oauthAccessTokenSecret, results) {
+	consumer().getOAuthAccessToken(req.session.token, req.session.token_secret, req.query.oauth_verifier, function(error, oauthAccessToken, oauthAccessTokenSecret, results) {
 		if (error) {
+			res.send(req.session.oauth);
 			res.send("Error getting OAuth access token : " + sys.inspect(error) + "["+oauthAccessToken+"]"+ "["+oauthAccessTokenSecret+"]"+ "["+sys.inspect(results)+"]", 500);
 		} else {
 			req.session.oauthAccessToken = oauthAccessToken;
