@@ -2,15 +2,8 @@
 ## For node.js
 Doesn't do anything yet.
 
-put your tumblr api keys in a ./tumblr-keys.js file like so:
+The goal is to provide an interface for quickly queueing/posting a bunch of results from a google image (or flickr) search. Plus some other things.
 
-`
-var	tumblr = {
-	key: 'redacted',
-	secret: 'redacted'
-};
-module.exports = tumblr;
-`
 Dependencies:
 * Node.js (and npm)
 * Bower
