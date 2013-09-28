@@ -16,7 +16,6 @@ var config = require('./config.js');
 var sys = require('util');
 var oauth = require('oauth');
 
-
 var app = express();
 
 // all environments

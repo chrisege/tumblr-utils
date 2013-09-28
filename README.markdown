@@ -11,5 +11,14 @@ var	tumblr = {
 };
 module.exports = tumblr;
 `
+Dependencies:
+* Node.js (and npm)
+* Bower
+* Grunt (and grunt-cli)
+* MongoDB
 
-We're storing tumblr oauth tokens in mongodb, so you'll need that installed and running.
+To start:
+* `npm install`
+* `bower install` (there isn't any frontend stuff yet)
+* make sure mongodb is installed and running
+* `grunt dev` or `node app` to init
