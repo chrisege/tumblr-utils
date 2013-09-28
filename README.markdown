@@ -21,4 +21,5 @@ To start:
 * `npm install`
 * `bower install` (there isn't any frontend stuff yet)
 * make sure mongodb is installed and running
+* rename `config.example.js` to `config.js` and fill in the appropriate api keys
 * `grunt dev` or `node app` to init
