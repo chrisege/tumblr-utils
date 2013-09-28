@@ -11,3 +11,5 @@ var	tumblr = {
 };
 module.exports = tumblr;
 `
+
+We're storing tumblr oauth tokens in mongodb, so you'll need that installed and running.

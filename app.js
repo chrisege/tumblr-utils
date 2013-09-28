@@ -7,10 +7,11 @@ var express = require('express'),
   // , routes = require('./routes')
   // , user = require('./routes/user')
   http = require('http'),
-  path = require('path');
+  path = require('path'),
+  mongoose = require('mongoose');
 
 var config = require('./config.js');
-console.log(config.PORT);
+		console.log(config.PORT);
 
 var sys = require('util');
 var oauth = require('oauth');
@@ -105,7 +106,7 @@ app.get('/sessions/callback', function(req, res){
   });
 });
 
-
-
+//http://www.flickr.com/services/api/flickr.photos.search.html
+//http://www.tumblr.com/docs/en/api/v2#posting
 
 app.listen(parseInt(config.PORT, 10));
