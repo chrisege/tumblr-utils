@@ -1,5 +1,6 @@
 # Tumblr Tools
 ## For node.js
+### Archived! Go here for the code I'm actually working on: https://github.com/chrisege/tumblrImgUtils
 Doesn't do anything yet.
 
 The goal is to provide an interface for quickly queueing/posting a bunch of results from a google image (or flickr) search. Plus some other things.
